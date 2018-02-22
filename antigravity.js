@@ -52,10 +52,10 @@ $.fn.antiGravity = function(customOptions){
             console.log(cTop);
             if(options.cutInHalf){  
                 if(wTop <= cTop){
-                    $('#scrollIt').css('transform','translateY('+(wTop/options.acceleration)*options.revert+'px)');
+                    $(that).css('transform','translateY('+(wTop/options.acceleration)*options.revert+'px)');
                 }
             }else{
-                $('#scrollIt').css('transform','translateY('+(wTop/options.acceleration)*options.revert+'px)');
+                $(that).css('transform','translateY('+(wTop/options.acceleration)*options.revert+'px)');
             }
         };
     });    
