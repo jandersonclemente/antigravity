@@ -12,20 +12,20 @@ $.fn.antiGravity = function(customOptions){
     var options = {};
     options.cutInHalf    = false;
     options.revert       = -1;
-    options.acceleration = 5;  
+    options.attenuation = 5;  
     options.duration     = 2000;
-    options.parent       = jQuery(this).parent();
+    options.parent       = jQuery(this).parent(); 
     if(customOptions){    
         // cut in half
         if(customOptions.cutInHalf){
             options.cutInHalf = customOptions.cutInHalf;
         }
-        //accelaration
-        if(customOptions.acceleration && customOptions.acceleration!=5){
-            if((!isNaN(customOptions.acceleration)) && customOptions.acceleration > 0){
-                options.acceleration = customOptions.acceleration;
+        //attenuation
+        if(customOptions.attenuation && customOptions.attenuation!=5){
+            if((!isNaN(customOptions.attenuation)) && customOptions.attenuation > 0){
+                options.attenuation = customOptions.attenuation;
             }else{
-                throw new Error('antiGravity says: Acceleration is not a number or is smaller than zero');
+                throw new Error('antiGravity says: attenuation is not a number or is smaller than zero');
             }
         }
         //revert
@@ -48,14 +48,13 @@ $.fn.antiGravity = function(customOptions){
     $(window).on('scroll',function(){                
         if($(that).isOnTheScreen()){
             var wTop = $(window).scrollTop();
-            var cTop = options.parent.position().top;
-            console.log(cTop);
+            var cTop = options.parent.position().top;            
             if(options.cutInHalf){  
                 if(wTop <= cTop){
-                    $(that).css('transform','translateY('+(wTop/options.acceleration)*options.revert+'px)');
+                    $(that).css('transform','translateY('+(wTop/options.attenuation)*options.revert+'px)');
                 }
             }else{
-                $(that).css('transform','translateY('+(wTop/options.acceleration)*options.revert+'px)');
+                $(that).css('transform','translateY('+(wTop/options.attenuation)*options.revert+'px)');
             }
         };
     });    
