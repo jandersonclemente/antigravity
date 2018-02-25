@@ -1,4 +1,5 @@
 // jQuery antiGravity Plugin v1.0
+// @author Janderson Clemente
 // jandersonclemente@outlook.com
 $.fn.isOnTheScreen = function() {
     var elementTop     = $(this).offset().top;
