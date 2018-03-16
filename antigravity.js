@@ -44,7 +44,7 @@ $.fn.antiGravity = function(customOptions){
             }
         }
     }
-    jQuery(this).css('transition','all 2000ms');
+    jQuery(this).css('transition','all '+options.duration+'ms');
     var that = this;
     $(window).on('scroll',function(){                
         if($(that).isOnTheScreen()){
